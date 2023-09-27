@@ -1,0 +1,19 @@
+/* Cambiar el color de los enlaces en la barra de navegación */
+.navbar .navi {
+    color: white !important;
+    text-decoration: none!important;
+    padding-left: 10px;
+  }
+  
+  /* Cambiar el color de los enlaces activos en la barra de navegación */
+  .navbar .navi.active {
+    color: yellow !important; /* Cambia 'yellow' al color que desees */
+    text-decoration: none!important;
+    padding-left: 10px;
+  }
+  /* navbar.css */
+@media (max-width: 768px) {
+    .navi {
+      font-size: 14px; /* Cambia el tamaño de fuente en dispositivos más pequeños */
+    }
+  }

@@ -1,0 +1,46 @@
+/* Estilos para el event-card */
+.rbc-event .rbc-selected {
+    background-color: hsl(152, 80%, 50%);
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+    transition: all 0.3s ease;
+  }
+  .rbc-event .rbc-selected .rbc-event.rbc-selected, .rbc-day-slot .rbc-selected.rbc-background-event {
+    background-color: red;
+  }
+  
+  /* Estilos para el event-card cuando está expandido */
+  .event-card.expanded {
+    height: auto; /* Ajusta la altura según el contenido */
+    padding-bottom: 20px; /* Espaciado adicional cuando está expandido */
+  }
+  
+  /* Estilos para el botón "Leer más" */
+  .event-card button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  /* Estilos para el contenido expandido */
+  .event-card .expanded-info {
+    display: none; /* Ocultar el contenido expandido por defecto */
+  }
+  
+  /* Estilos para el contenido expandido cuando está abierto */
+  .event-card.expanded .expanded-info {
+    display: block; /* Mostrar el contenido expandido cuando está abierto */
+    margin-top: 10px; /* Espaciado superior */
+  }
+  .rbc-event{
+    background-color: rgb(177, 238, 142);
+  }
+  .event-card h5{
+    color: black;
+  }
+  .event-card p{
+    color: black;
+  }
