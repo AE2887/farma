@@ -1,6 +1,6 @@
 /* Estilos para el event-card */
 .rbc-event .rbc-selected {
-    background-color: hsl(152, 80%, 50%);
+    background-color: hsl(12, 100%, 50%);
     border: 1px solid #ddd;
     padding: 10px;
     margin: 10px;
@@ -15,10 +15,12 @@
     height: auto; /* Ajusta la altura según el contenido */
     padding-bottom: 20px; /* Espaciado adicional cuando está expandido */
   }
-  
+  .rbc-event.rbc-selected, .rbc-day-slot .rbc-selected.rbc-background-event {
+    background-color: #F4E869!important;
+  }
   /* Estilos para el botón "Leer más" */
   .event-card button {
-    background-color: #007bff;
+    background-color: #038edf;
     color: #fff;
     border: none;
     padding: 5px 10px;
@@ -35,8 +37,8 @@
     display: block; /* Mostrar el contenido expandido cuando está abierto */
     margin-top: 10px; /* Espaciado superior */
   }
-  .rbc-event{
-    background-color: rgb(177, 238, 142);
+  .rbc-event .rbc-selected{
+    background-color: aqua;
   }
   .event-card h5{
     color: black;

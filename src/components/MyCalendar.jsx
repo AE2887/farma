@@ -11,50 +11,41 @@ const localizer = momentLocalizer(moment);
 const MyCalendar = () => {
   const [events, setEvents] = useState([]);
 
-  useEffect(() => {
-    // Realiza una solicitud a la API para obtener los datos de las recetas
-    axios.get('http://localhost:3000/api/recipe')
-      .then((response) => {
-        const recetas = response.data;
+  const fetchData = async () => {
+    try {
+      const [recipesResponse, clientsResponse] = await Promise.all([
+        axios.get('http://localhost:3000/api/recipe'),
+        axios.get('http://localhost:3000/api/clientes')
+      ]);
 
-        // Filtrar las recetas que coincidan con el número de DNI y afiliado de la tabla de clientes
-        const filteredRecetas = recetas.filter((receta) => {
-          const matchingCliente = findMatchingCliente(receta.dni, receta.afiliado);
-          return !!matchingCliente; // Retorna true si se encuentra un cliente que coincide
+      const recetas = recipesResponse.data;
+      const clientes = clientsResponse.data;
+
+      const calendarEvents = recetas.map((receta) => {
+        const matchingCliente = clientes.find((cliente) => {
+          return cliente.dni === receta.dni && cliente.afiliado === receta.afiliado;
         });
 
-        // Crear un arreglo de eventos a partir de las recetas filtradas
-        const calendarEvents = filteredRecetas.map((receta) => {
-          const matchingCliente = findMatchingCliente(receta.dni, receta.afiliado);
-          return {
-            title: receta.title,
-            start: new Date(receta.fecha_de_vencimiento),
-            dni: receta.dni,
-            afiliado: receta.afiliado,
-            nombre: receta.nombre, // Verifica que matchingCliente tenga la propiedad nombre
-            apellido: receta.apellido, // Verifica que matchingCliente tenga la propiedad apellido
-          };
-        });
-
-        // Actualizar los eventos del calendario
-        setEvents(calendarEvents);
-      })
-      .catch((error) => {
-        console.error('Error al obtener datos de recetas:', error);
+        return {
+          id: receta.id,
+          title: receta.title,
+          start: new Date(receta.fecha_de_vencimiento),
+          dni: receta.dni,
+          afiliado: receta.afiliado,
+          nombre: matchingCliente ? matchingCliente.nombre : '',
+          apellido: matchingCliente ? matchingCliente.apellido : '',
+        };
       });
-  }, []);
 
-  // Función para buscar un cliente que coincida con el número de DNI y afiliado
-  const findMatchingCliente = (dni, afiliado) => {
-    return axios.get(`http://localhost:3000/api/clientes?dni=${dni}&afiliado=${afiliado}`)
-      .then((clienteResponse) => {
-        return clienteResponse.data[0]; // Suponemos que hay un solo cliente con este DNI y afiliado
-      })
-      .catch(() => {
-        console.error(`Error al obtener datos del cliente con DNI ${dni} y afiliado ${afiliado}`);
-        return null;
-      });
+      setEvents(calendarEvents);
+    } catch (error) {
+      console.error('Error al obtener datos:', error);
+    }
   };
+
+  useEffect(() => {
+    fetchData();
+  }, []); // Solo necesitas un useEffect, no es necesario anidarlos
 
   return (
     <div>
@@ -64,7 +55,7 @@ const MyCalendar = () => {
         startAccessor="start"
         endAccessor="start"
         components={{
-          event: EventCard, // Utiliza el componente EventCard como plantilla para los eventos
+          event: (eventProps) => <EventCard {...eventProps} fetchData={fetchData} />, // Pasa la función como prop
         }}
       />
     </div>

@@ -1,0 +1,61 @@
+/* modal.css */
+
+/* Estilo del fondo oscuro */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Fondo casi negro transparente */
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Estilo del modal */
+  .modal-content {
+    background-color:rgb(255 255 255 ); /* Fondo casi transparente */
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 400px; /* Ancho máximo del modal */
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Estilos del texto dentro del modal */
+  .modal-content p {
+    color: hsl(0, 8%, 30%); /* Color de texto personalizado */
+    font-size: 20px; /* Tamaño de fuente personalizado */
+    margin-bottom: 10px; /* Espacio entre párrafos */
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .modal-content H5{
+    font-size: 20px;
+    color: rgb(16 0 255);
+    font-weight: 500;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+  .modal-content button {
+    background-color: #e62020; /* Color de fondo del botón */
+    color: white; /* Color de texto del botón */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+  }
+ 
+  .modal-content button:hover {
+    background-color: hsl(0, 76%, 36%); /* Cambiar el color de fondo al pasar el cursor por encima */
+  }
+  
+  /* Estilo para hacer el modal responsive */
+  @media (max-width: 768px) {
+    .modal-content {
+      max-width: 90%;
+    }
+  }
+  

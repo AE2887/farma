@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom'; 
 import axios from 'axios';
 import Toast from 'react-bootstrap/Toast'
+import ClientRecipesList from '../controller/ClientRecipesList'; // Importa el componente
 
 const EditClientPage = () => {
   const navigate = useNavigate(); // Inicializa useNavigate
@@ -148,6 +149,7 @@ const EditClientPage = () => {
         
         <button type="submit" className="btn btn-primary">Guardar Cambios</button>
       </form>
+      <ClientRecipesList clientId={id}  />
     </div>
   );
 };

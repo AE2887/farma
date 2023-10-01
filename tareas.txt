@@ -1,0 +1,4 @@
+hacer el boton en un componente nuevo:
+El boton es para sumar 30 dias a columna fecha_de_vencimiento tabla recetas:
+tiene que ser un componente para poder meterlo en diferente lugares:
+tiene que tener un controlador para sumar 30 dias a la fecha dentro de esa columna

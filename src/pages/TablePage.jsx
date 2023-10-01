@@ -19,6 +19,17 @@ function TablePage() {
     navigate(`/edit-client/${id}`); // Cambiamos history.push a navigate
   };
 
+  const handleAdd30Days = async (id) => {
+    try {
+      // Realiza la solicitud para agregar 30 días a la receta con el ID
+      await axios.patch(`http://localhost:3000/api/recetas/sumar30dias/${id}`);
+      fetchData(); // Refresca los datos en la tabla después de agregar 30 días
+    } catch (error) {
+      console.error(`Error al agregar 30 días a la receta ${id}:`, error);
+    }
+  };
+
+
   const handleDelete = (id) => {
     // Realizar la solicitud de eliminación del cliente y actualizar la tabla
     axios
@@ -71,6 +82,10 @@ function TablePage() {
                   >
                     <i className="fas fa-trash"></i> Borrar
                   </button>
+                  <button
+  className="btn btn-success"
+  onClick={() => handleAdd30Days(d.id)}
+>+ 30 dias</button>
                 </td>
               </tr>
             ))}
