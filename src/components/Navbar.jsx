@@ -15,6 +15,7 @@ function Barra() {
             <NavLink className="navi" to='/calendar'>Calendar</NavLink>
             <NavLink className="navi" to='/table'>Table</NavLink>
             <NavLink className="navi" to='/cliente'>Add Client</NavLink>
+            <NavLink className="navi" to='/Addrecetas'>Add Recetas</NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -10,7 +10,9 @@ import NotFoundPage from "./pages/NotFoundPage";
 import Barra from "./components/Navbar.jsx";
 import EditClientPage from './pages/EditClientPage.jsx';
 import AddClientPage from './pages/AddClientPage.jsx';
+import AddRecipePage from './pages/AddRecipePage';
 import RecipeEditModal from './controller/RecipeEditModal';
+
 
 
 
@@ -27,7 +29,7 @@ function App() {
         <Route path="/cliente" element={<AddClientPage />} />
         <Route path="/calendar" element={<CalendarPage />} />
         <Route path="/table" element={<TablePage />} />
-        
+        <Route path="/Addrecetas" element={<AddRecipePage />} />
         <Route path="/recetas/:id" element={<RecipeEditModal />} />
         <Route path="/edit-client/:id" element={<EditClientPage />} />
         <Route path="*" element={<NotFoundPage />} />

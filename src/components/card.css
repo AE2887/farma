@@ -1,3 +1,13 @@
+/* Estilos para las tarjetas de eventos */
+.event-card {
+  background-color: #F4E869;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px; /* Espacio entre las tarjetas de evento */
+  max-width: 200px; /* Establece un ancho máximo para las tarjetas */
+  text-align: left; /* Alinea el texto a la izquierda */
+}
+
 /* Estilos para el event-card */
 .rbc-event .rbc-selected {
     background-color: hsl(12, 100%, 50%);
@@ -15,18 +25,19 @@
     height: auto; /* Ajusta la altura según el contenido */
     padding-bottom: 20px; /* Espaciado adicional cuando está expandido */
   }
-  .rbc-event.rbc-selected, .rbc-day-slot .rbc-selected.rbc-background-event {
-    background-color: #F4E869!important;
-  }
+  
   /* Estilos para el botón "Leer más" */
   .event-card button {
-    background-color: #038edf;
+    background-color: hsl(0, 88%, 53%);
     color: #fff;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
   }
-  
+  .rbc-event, .rbc-day-slot .rbc-background-event{
+    background-color: hsl(44, 67%, 57%)!important;
+    display: flex;
+  }
   /* Estilos para el contenido expandido */
   .event-card .expanded-info {
     display: none; /* Ocultar el contenido expandido por defecto */
@@ -46,3 +57,28 @@
   .event-card p{
     color: black;
   }
+  /* Estilos para el contenedor de tarjetas de eventos */
+.event-card-container {
+  display: flex;
+  flex-direction: column; /* Apilar las tarjetas verticalmente */
+  align-items: flex-start; /* Alinear a la izquierda */
+  gap: 10px; /* Espacio entre las tarjetas */
+}
+.rbc-day-slot .rbc-event,
+.rbc-day-slot .rbc-background-event {
+  border: 1px solid #265985;
+  display: flex;
+  /* Elimina max-height y height */
+  min-height: 20px;
+  flex-flow: column wrap;
+  align-items: flex-start;
+  overflow: hidden;
+  position: absolute;
+}
+
+/* Establece un ancho máximo para las tarjetas en week y day */
+.rbc-event {
+  top: 0%;
+  width: 50%; /* Modifica el ancho máximo según tus preferencias */
+  left: 50%;
+}

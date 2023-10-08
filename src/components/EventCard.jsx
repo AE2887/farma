@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import './card.css';
-import './modal.css';
-import Add30Days from '../controller/Add30Days.jsx'; // Importa el nuevo componente
+import Add30Days from '../controller/Add30Days.jsx';
+import './event.css';
 
 const EventCard = ({ event, fetchData }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -17,15 +16,15 @@ const EventCard = ({ event, fetchData }) => {
   };
 
   return (
-    <div className="event-card">
-      <p>Nombre: {event.nombre}</p>
-      <p>Apellido: {event.apellido}</p>
-      <Button variant="primary" onClick={openModal}>
-        Leer más
+    <div className="event-card small">
+      
+     
+      <Button className="small-button" variant="primary" onClick={openModal}>
+        +
       </Button>
 
       <Modal show={modalIsOpen} onHide={closeModal}>
-        <Modal.Header >
+        <Modal.Header>
           <Modal.Title>Información Detallada</Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -42,7 +41,6 @@ const EventCard = ({ event, fetchData }) => {
           <h5>Vencimiento:</h5>
           <p>{event.start.toLocaleDateString()}</p>
 
-          {/* Botón para abrir el componente Add30Days */}
           <Add30Days event={event} closeModal={closeModal} fetchData={fetchData} />
         </Modal.Body>
         <Modal.Footer>

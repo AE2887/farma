@@ -1,0 +1,37 @@
+/* Estilos para dispositivos desktop y tablet */
+.event-card {
+    /* Estilos normales para event-card en desktop y tablet */
+   
+    
+    padding: 0px!important;
+    margin: 0px!important;
+    /* Otros estilos específicos para desktop y tablet */
+  }
+  .small-button {
+    
+    font-size: 10px!important; 
+    display: flex;
+    justify-content: flex-end;
+    color: rgb(243, 4, 4);
+    background-color: rgb(255, 255, 255);
+    padding: 1px 5px!important; 
+  }
+  
+  /* Estilos para dispositivos móviles */
+  @media (max-width: 767px) {
+    .event-card.small {
+      /* Estilos para hacer que el event-card sea más pequeño en móviles */
+      width: 20px;
+     
+      font-size: 10px!important; /* Reducir el tamaño de la fuente */
+      /* Otros estilos para hacerlo más pequeño en móviles */
+    }
+  
+    .small-button {
+      /* Estilos para hacer que el botón sea más pequeño en móviles */
+      font-size: 10px!important; /* Reducir el tamaño de la fuente del botón */
+      padding: 1px 5px!important; /* Reducir el padding del botón */
+      /* Otros estilos para hacerlo más pequeño en móviles */
+    }
+  }
+  

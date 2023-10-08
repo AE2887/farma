@@ -1,0 +1,17 @@
+/* Estilos personalizados para reducir el tamaño del calendario */
+.small-calendar {
+    max-width: 250px; /* Ancho máximo del calendario */
+  }
+  
+  .small-calendar .rbc-calendar {
+    font-size: 12px; /* Tamaño de fuente más pequeño */
+  }
+  
+  .small-calendar .rbc-header {
+    height: 30px; /* Altura de la cabecera más pequeña */
+  }
+  
+  .small-calendar .rbc-date-cell {
+    height: 30px; /* Altura de las celdas de fecha más pequeña */
+  }
+  
